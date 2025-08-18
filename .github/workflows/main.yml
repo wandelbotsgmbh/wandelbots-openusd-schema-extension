@@ -1,0 +1,48 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all tags
+
+      - name: Get the Git Tag for this Commit
+        id: get_tag
+        run: echo "TAG_NAME=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+
+      - name: Check if Tag Exists
+        run: |
+          if [ -z "$TAG_NAME" ]; then
+            echo "No tag found for this commit. Skipping release."
+            exit 1
+          fi
+        shell: bash
+
+      - name: Get Tag Description
+        id: get_tag_message
+        run: |
+          TAG_MESSAGE=$(git tag -l --format='%(contents)' "$TAG_NAME")
+          echo "TAG_MESSAGE<<EOF" >> $GITHUB_ENV
+          echo "$TAG_MESSAGE" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: Release ${{ env.TAG_NAME }}
+          body: ${{ env.TAG_MESSAGE }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
