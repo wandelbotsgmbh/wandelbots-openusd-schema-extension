@@ -1,0 +1,141 @@
+#usda 1.0
+(
+    subLayers = [
+        @usd/schema.usda@,
+        @usdGeom/schema.usda@
+    ]
+)
+
+over "GLOBAL" (
+    customData = {
+        string libraryName   = "wandelbotsNOVASchema"
+        string libraryPath   = "./"
+        string libraryPrefix = "WandelbotsNOVA"
+    }
+) {
+}
+
+class "MotionGroupAPI" (
+    inherits = </APISchemaBase>
+    customData = {
+        token apiSchemaType = "singleApply"
+    }
+
+    doc = """Defines a connector to NOVA motion group api."""
+) {
+    bool wandelbots:nova:motionGroup:enabled = true (
+        customData = {
+            string apiName = "enabled"
+        }
+
+        doc = """Defines wether the motion group should be simulated or establish a connection to nova."""
+    )
+
+    string wandelbots:nova:motionGroup:cell = "" (
+        customData = {
+            string apiName = "cell"
+        }
+
+        doc = """Defines the cell of the motion group."""
+    )
+
+    string wandelbots:nova:motionGroup:controller = "" (
+        customData = {
+            string apiName = "controller"
+        }
+
+        doc = """Defines the controller identifier from the api."""
+    )
+
+    string wandelbots:nova:motionGroup:motionGroup = "" (
+        customData = {
+            string apiName = "motionGroup"
+        }
+
+        doc = """Defines the motionGroup identifier from the api."""
+    )
+
+    string wandelbots:nova:motionGroup:host = "" (
+        customData = {
+            string apiName = "host"
+        }
+
+        doc = """Defines the host of the motion group. E.g. abc.instance.wandelbots.com or 127.0.0.1."""
+    )
+
+    bool wandelbots:nova:motionGroup:secure = false (
+        customData = {
+            string apiName = "secure"
+        }
+
+        doc = """Defines wether the connection to the motion group api needs to use a secure connection."""
+    )
+
+    uint wandelbots:nova:motionGroup:responseRate = 32 (
+        customData = {
+            string apiName = "responseRate"
+        }
+
+        doc = """Defines the motion group stream message/update delay."""
+    )
+
+    bool wandelbots:nova:motionGroup:externalJointStream = false (
+        customData = {
+            string apiName = "externalJointStream"
+        }
+
+        doc = """Defines wether the stream should be operated as externalJointStream to stay in sync with the motion state receiver (e.g. the simulation)."""
+    )
+
+    bool wandelbots:nova:motionGroup:enabled = true (
+        customData = {
+            string apiName = "enabled"
+        }
+
+        doc = """Defines if the motion group should connect once the simulation is running."""
+    )
+}
+
+class "ToolAPI" (
+    inherits = </APISchemaBase>
+    customData = {
+        token apiSchemaType = "singleApply"
+    }
+
+    doc = """Defines a connector to NOVA motion group api."""
+) {
+    rel wandelbots:nova:tool:linkBody (
+        customData = {
+            string apiName = "SourceTcp"
+        }
+
+        doc = """Defines the tcp which was used from the reference tool."""
+    )
+}
+
+class "GhostObjectAPI" (
+    inherits = </APISchemaBase>
+    customData = {
+        token apiSchemaType = "singleApply"
+    }
+
+    doc = """Defines a ghost object created from a tool and tcp."""
+) {
+    rel wandelbots:nova:ghostObject:sourceTcp (
+        customData = {
+            string apiName = "SourceTcp"
+        }
+
+        doc = """Defines the tcp which was used from the reference tool."""
+    )
+}
+
+class ToolCenterPoint "ToolCenterPoint" (
+    inherits = </Xformable>
+    doc = """Defines a tool center point (tcp)."""
+
+    customData = {
+        string className = "ToolCenterPoint"
+    }
+) {
+}
