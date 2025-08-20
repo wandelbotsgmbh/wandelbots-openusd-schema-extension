@@ -164,17 +164,17 @@ private:
 
 public:
     // --------------------------------------------------------------------- //
-    // SOURCETCP 
+    // LINKBODY 
     // --------------------------------------------------------------------- //
-    /// Defines the tcp which was used from the reference tool.
+    /// Defines the rigid body which was used to connect the tool to a motion group.
     ///
     WANDELBOTSNOVASCHEMA_API
-    UsdRelationship GetSourceTcpRel() const;
+    UsdRelationship GetLinkBodyRel() const;
 
-    /// See GetSourceTcpRel(), and also 
+    /// See GetLinkBodyRel(), and also 
     /// \ref Usd_Create_Or_Get_Property for when to use Get vs Create
     WANDELBOTSNOVASCHEMA_API
-    UsdRelationship CreateSourceTcpRel() const;
+    UsdRelationship CreateLinkBodyRel() const;
 
 public:
     // ===================================================================== //

@@ -106,10 +106,10 @@ class "ToolAPI" (
 ) {
     rel wandelbots:nova:tool:linkBody (
         customData = {
-            string apiName = "SourceTcp"
+            string apiName = "LinkBody"
         }
 
-        doc = """Defines the tcp which was used from the reference tool."""
+        doc = """Defines the rigid body which was used to connect the tool to a motion group."""
     )
 }
 
