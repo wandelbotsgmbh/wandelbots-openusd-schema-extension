@@ -1,0 +1,44 @@
+[core]
+# No hot reload for schema extensions
+reloadable = false
+
+# Load at the start, load all schemas with order -100 (with order -1000 the USD libs are loaded)
+# this is necessary (as it to set the extension to auto load)
+# so that the schemas get loaded into the UsdSchemaRegistry early enough
+order = -100
+
+[package]
+platforms = ["windows-x86_64", "linux-x86_64"]
+authors = ["Wandelbots GmbH"]
+repository = "https://github.com/wandelbotsgmbh/wandelbots-openusd-schema-extension"
+category = "USD"
+title = "Wandelbots USD Schema"
+version = "1.1.2"
+keywords = [
+    "Wandelbots",
+    "WandelbotsNOVA",
+    "NOVA",
+    "Robotics",
+    "Simulation",
+    "OpenUSD",
+    "Schema",
+    "USD",
+]
+readme = "docs/README.md"
+changelog = "docs/CHANGES.md"
+icon = "data/icon.png"
+writeTarget.python = true
+target.python = ["cp310"]
+
+[dependencies]
+"omni.usd.libs" = {}
+
+[[python.module]]
+name = "wandelbots.usd"
+
+[[python.module]]
+name = "wandelbotsNOVASchema"
+path = "./plugins"
+
+[[native.library]]
+"path" = "plugins/lib/${lib_prefix}wandelbotsNOVASchema${lib_ext}"
