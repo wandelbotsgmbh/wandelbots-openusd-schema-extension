@@ -9,7 +9,6 @@ Plug.Registry().RegisterPlugins(wandelbotsNOVASchemaPath)
 from wandelbotsNOVASchema import (
     GhostObjectAPI,
     MotionGroupAPI,
-    Tokens,
     ToolAPI,
     ToolCenterPoint,
 )
@@ -17,7 +16,6 @@ from wandelbotsNOVASchema import (
 __all__ = [
     "GhostObjectAPI",
     "MotionGroupAPI",
-    "Tokens",
     "ToolAPI",
     "ToolCenterPoint",
 ]

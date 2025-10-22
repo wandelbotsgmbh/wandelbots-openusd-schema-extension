@@ -1,5 +1,6 @@
 import omni.kit.test
 import wandelbotsNOVASchema as schema
+import wandelbots.usd as module_schema
 from pxr import Usd
 
 
@@ -33,6 +34,7 @@ class SchemaLoadedTest(omni.kit.test.AsyncTestCase):
 
     def test_ghost_object_loaded(self):
         assert("GhostObjectAPI" in dir(schema))
+        assert("GhostObjectAPI" in dir(module_schema))
 
     def test_ghost_object_api_has_properties(self):
         actual_list = getSchemaPropertyNames(schema.GhostObjectAPI)
@@ -40,6 +42,7 @@ class SchemaLoadedTest(omni.kit.test.AsyncTestCase):
 
     def test_tool_api_loaded(self):
         assert("ToolAPI" in dir(schema))
+        assert("ToolAPI" in dir(module_schema))
 
     def test_tool_api_has_properties(self):
         actual_list = getSchemaPropertyNames(schema.ToolAPI)
@@ -47,6 +50,7 @@ class SchemaLoadedTest(omni.kit.test.AsyncTestCase):
 
     def test_motion_group_api_loaded(self):
         assert("MotionGroupAPI" in dir(schema))
+        assert("MotionGroupAPI" in dir(module_schema))
 
     def test_motion_group_api_has_properties(self):
         actual_list = getSchemaPropertyNames(schema.MotionGroupAPI)
@@ -61,3 +65,4 @@ class SchemaLoadedTest(omni.kit.test.AsyncTestCase):
 
     def test_tool_center_point_loaded(self):
         assert("ToolCenterPoint" in dir(schema))
+        assert("ToolCenterPoint" in dir(module_schema))

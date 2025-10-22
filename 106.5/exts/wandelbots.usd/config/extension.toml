@@ -8,12 +8,12 @@ reloadable = false
 order = -100
 
 [package]
-platforms = ["windows-x86_64", "linux-x86_64"]
+platforms = ["linux-x86_64", "windows-x86_64"]
 authors = ["Wandelbots GmbH"]
 repository = "https://github.com/wandelbotsgmbh/wandelbots-openusd-schema-extension"
 category = "USD"
 title = "Wandelbots USD Schema"
-version = "1.1.3"
+version = "1.1.4"
 keywords = [
     "Wandelbots",
     "WandelbotsNOVA",
@@ -28,6 +28,7 @@ readme = "docs/README.md"
 changelog = "docs/CHANGES.md"
 icon = "data/icon.png"
 writeTarget.python = true
+writeTarget.platform = false
 target.python = ["cp310"]
 
 [dependencies]

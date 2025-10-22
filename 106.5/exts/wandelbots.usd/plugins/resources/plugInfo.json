@@ -48,7 +48,7 @@
                     }
                 }
             }, 
-            "LibraryPath": "lib/wandelbotsNOVASchema.dll", 
+            "LibraryPath": "lib/libwandelbotsNOVASchema.so", 
             "Name": "wandelbotsNOVASchema", 
             "ResourcePath": "resources", 
             "Root": "..", 
