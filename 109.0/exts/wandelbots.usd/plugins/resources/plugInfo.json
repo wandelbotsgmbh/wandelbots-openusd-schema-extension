@@ -14,6 +14,7 @@
                         "bases": [
                             "UsdAPISchemaBase"
                         ], 
+                        "schemaIdentifier": "GhostObjectAPI", 
                         "schemaKind": "singleApplyAPI"
                     }, 
                     "WandelbotsNOVAMotionGroupAPI": {
@@ -24,6 +25,7 @@
                         "bases": [
                             "UsdAPISchemaBase"
                         ], 
+                        "schemaIdentifier": "MotionGroupAPI", 
                         "schemaKind": "singleApplyAPI"
                     }, 
                     "WandelbotsNOVAToolAPI": {
@@ -34,6 +36,7 @@
                         "bases": [
                             "UsdAPISchemaBase"
                         ], 
+                        "schemaIdentifier": "ToolAPI", 
                         "schemaKind": "singleApplyAPI"
                     }, 
                     "WandelbotsNOVAToolCenterPoint": {
@@ -44,6 +47,7 @@
                         "bases": [
                             "UsdGeomXformable"
                         ], 
+                        "schemaIdentifier": "ToolCenterPoint", 
                         "schemaKind": "concreteTyped"
                     }
                 }

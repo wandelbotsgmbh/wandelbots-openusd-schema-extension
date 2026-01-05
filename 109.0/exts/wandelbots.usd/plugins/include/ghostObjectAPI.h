@@ -1,30 +1,13 @@
 //
 // Copyright 2016 Pixar
 //
-// Licensed under the Apache License, Version 2.0 (the "Apache License")
-// with the following modification; you may not use this file except in
-// compliance with the Apache License and the following modification to it:
-// Section 6. Trademarks. is deleted and replaced with:
+// Licensed under the terms set forth in the LICENSE.txt file available at
+// https://openusd.org/license.
 //
-// 6. Trademarks. This License does not grant permission to use the trade
-//    names, trademarks, service marks, or product names of the Licensor
-//    and its affiliates, except as required to comply with Section 4(c) of
-//    the License and to reproduce the content of the NOTICE file.
-//
-// You may obtain a copy of the Apache License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the Apache License with the above modification is
-// distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-// KIND, either express or implied. See the Apache License for the specific
-// language governing permissions and limitations under the Apache License.
-//
-#ifndef WANDELBOTSNOVASCHEMA_GENERATED_TOOLAPI_H
-#define WANDELBOTSNOVASCHEMA_GENERATED_TOOLAPI_H
+#ifndef WANDELBOTSNOVASCHEMA_GENERATED_GHOSTOBJECTAPI_H
+#define WANDELBOTSNOVASCHEMA_GENERATED_GHOSTOBJECTAPI_H
 
-/// \file wandelbotsNOVASchema/toolAPI.h
+/// \file wandelbotsNOVASchema/ghostObjectAPI.h
 
 #include "pxr/pxr.h"
 #include ".//api.h"
@@ -47,14 +30,14 @@ PXR_NAMESPACE_OPEN_SCOPE
 class SdfAssetPath;
 
 // -------------------------------------------------------------------------- //
-// TOOLAPI                                                                    //
+// GHOSTOBJECTAPI                                                             //
 // -------------------------------------------------------------------------- //
 
-/// \class WandelbotsNOVAToolAPI
+/// \class WandelbotsNOVAGhostObjectAPI
 ///
-/// Defines a connector to NOVA motion group api.
+/// Defines a ghost object created from a tool and tcp.
 ///
-class WandelbotsNOVAToolAPI : public UsdAPISchemaBase
+class WandelbotsNOVAGhostObjectAPI : public UsdAPISchemaBase
 {
 public:
     /// Compile time constant representing what kind of schema this class is.
@@ -62,26 +45,26 @@ public:
     /// \sa UsdSchemaKind
     static const UsdSchemaKind schemaKind = UsdSchemaKind::SingleApplyAPI;
 
-    /// Construct a WandelbotsNOVAToolAPI on UsdPrim \p prim .
-    /// Equivalent to WandelbotsNOVAToolAPI::Get(prim.GetStage(), prim.GetPath())
+    /// Construct a WandelbotsNOVAGhostObjectAPI on UsdPrim \p prim .
+    /// Equivalent to WandelbotsNOVAGhostObjectAPI::Get(prim.GetStage(), prim.GetPath())
     /// for a \em valid \p prim, but will not immediately throw an error for
     /// an invalid \p prim
-    explicit WandelbotsNOVAToolAPI(const UsdPrim& prim=UsdPrim())
+    explicit WandelbotsNOVAGhostObjectAPI(const UsdPrim& prim=UsdPrim())
         : UsdAPISchemaBase(prim)
     {
     }
 
-    /// Construct a WandelbotsNOVAToolAPI on the prim held by \p schemaObj .
-    /// Should be preferred over WandelbotsNOVAToolAPI(schemaObj.GetPrim()),
+    /// Construct a WandelbotsNOVAGhostObjectAPI on the prim held by \p schemaObj .
+    /// Should be preferred over WandelbotsNOVAGhostObjectAPI(schemaObj.GetPrim()),
     /// as it preserves SchemaBase state.
-    explicit WandelbotsNOVAToolAPI(const UsdSchemaBase& schemaObj)
+    explicit WandelbotsNOVAGhostObjectAPI(const UsdSchemaBase& schemaObj)
         : UsdAPISchemaBase(schemaObj)
     {
     }
 
     /// Destructor.
     WANDELBOTSNOVASCHEMA_API
-    virtual ~WandelbotsNOVAToolAPI();
+    virtual ~WandelbotsNOVAGhostObjectAPI();
 
     /// Return a vector of names of all pre-declared attributes for this schema
     /// class and all its ancestor classes.  Does not include attributes that
@@ -90,17 +73,17 @@ public:
     static const TfTokenVector &
     GetSchemaAttributeNames(bool includeInherited=true);
 
-    /// Return a WandelbotsNOVAToolAPI holding the prim adhering to this
+    /// Return a WandelbotsNOVAGhostObjectAPI holding the prim adhering to this
     /// schema at \p path on \p stage.  If no prim exists at \p path on
     /// \p stage, or if the prim at that path does not adhere to this schema,
     /// return an invalid schema object.  This is shorthand for the following:
     ///
     /// \code
-    /// WandelbotsNOVAToolAPI(stage->GetPrimAtPath(path));
+    /// WandelbotsNOVAGhostObjectAPI(stage->GetPrimAtPath(path));
     /// \endcode
     ///
     WANDELBOTSNOVASCHEMA_API
-    static WandelbotsNOVAToolAPI
+    static WandelbotsNOVAGhostObjectAPI
     Get(const UsdStagePtr &stage, const SdfPath &path);
 
 
@@ -125,11 +108,11 @@ public:
     CanApply(const UsdPrim &prim, std::string *whyNot=nullptr);
 
     /// Applies this <b>single-apply</b> API schema to the given \p prim.
-    /// This information is stored by adding "ToolAPI" to the 
+    /// This information is stored by adding "GhostObjectAPI" to the 
     /// token-valued, listOp metadata \em apiSchemas on the prim.
     /// 
-    /// \return A valid WandelbotsNOVAToolAPI object is returned upon success. 
-    /// An invalid (or empty) WandelbotsNOVAToolAPI object is returned upon 
+    /// \return A valid WandelbotsNOVAGhostObjectAPI object is returned upon success. 
+    /// An invalid (or empty) WandelbotsNOVAGhostObjectAPI object is returned upon 
     /// failure. See \ref UsdPrim::ApplyAPI() for conditions 
     /// resulting in failure. 
     /// 
@@ -140,7 +123,7 @@ public:
     /// \sa UsdPrim::RemoveAPI()
     ///
     WANDELBOTSNOVASCHEMA_API
-    static WandelbotsNOVAToolAPI 
+    static WandelbotsNOVAGhostObjectAPI 
     Apply(const UsdPrim &prim);
 
 protected:
@@ -164,17 +147,17 @@ private:
 
 public:
     // --------------------------------------------------------------------- //
-    // LINKBODY 
+    // SOURCETCP 
     // --------------------------------------------------------------------- //
-    /// Defines the rigid body which was used to connect the tool to a motion group.
+    /// Defines the tcp which was used from the reference tool.
     ///
     WANDELBOTSNOVASCHEMA_API
-    UsdRelationship GetLinkBodyRel() const;
+    UsdRelationship GetSourceTcpRel() const;
 
-    /// See GetLinkBodyRel(), and also 
+    /// See GetSourceTcpRel(), and also 
     /// \ref Usd_Create_Or_Get_Property for when to use Get vs Create
     WANDELBOTSNOVASCHEMA_API
-    UsdRelationship CreateLinkBodyRel() const;
+    UsdRelationship CreateSourceTcpRel() const;
 
 public:
     // ===================================================================== //
