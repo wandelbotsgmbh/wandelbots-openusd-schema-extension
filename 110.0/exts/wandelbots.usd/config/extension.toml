@@ -8,7 +8,7 @@ reloadable = false
 order = -100
 
 [package]
-platforms = ["linux-x86_64", "windows-x86_64"]
+platforms = ["linux-x86_64"]
 authors = ["Wandelbots GmbH"]
 repository = "https://github.com/wandelbotsgmbh/wandelbots-openusd-schema-extension"
 category = "USD"
@@ -29,7 +29,7 @@ changelog = "docs/CHANGES.md"
 icon = "data/icon.png"
 writeTarget.python = true
 writeTarget.platform = false
-target.python = ["cp311"]
+target.python = ["cp312"]
 
 [dependencies]
 "omni.usd.libs" = {}
